@@ -51,7 +51,7 @@ namespace EFCodeFirstDemo.UnitTest
         /// </summary>
         static void DoStoredProcs()
         {
-            //EF 6提供了三种方法使用原生sql
+            //EF 6提供了三种方法使用原生命令
             //DbSet.SqlQuery()，执行sql命令，返回整个entity。
             //DbContext.Database.SqlQuery()，执行sql命令，返回任意自定义类型
             //DbContext.Database.ExecuteSqlCommand()，执行sql命令，处理增，删和改操作
