@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EFCodeFirstDemo.Entity.DO;
+using System.Data.Entity.Infrastructure;
 
 namespace EFCodeFirstDemo.Data
 {
@@ -13,6 +14,22 @@ namespace EFCodeFirstDemo.Data
         public EFCodeFirstDemoDBContext()
             : base("name=EFCodeFirstDemoDB")
         {
+            //关闭数据库初始化器!!!(重要)
+            Database.SetInitializer<EFCodeFirstDemoDBContext>(null);
+
+            //???
+            //this.Configuration.ProxyCreationEnabled = false; //默认关闭代理类
+            //this.Configuration.LazyLoadingEnabled = false;
+
+        }
+
+        /// <summary>
+        /// 关闭fluent API
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
         }
 
         public virtual DbSet<TFltAskOrders> TFltAskOrders { get; set; }

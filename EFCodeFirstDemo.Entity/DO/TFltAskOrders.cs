@@ -113,6 +113,12 @@ namespace EFCodeFirstDemo.Entity.DO
 		/// </summary>
 		[Column("original_ask_order_no")] 
 		public string OriginalAskOrderNo { get; set; }
-		
-	}
+
+        [Column("remark1")]
+        public string Remark1 { get; set; }
+
+        [Column("remark2")]
+        public string Remark2 { get; set; }
+
+    }
 }
