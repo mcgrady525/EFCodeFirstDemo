@@ -51,7 +51,8 @@ artifacts/
 *.meta
 *.obj
 *.pch
-*.pdb
+#因为需要包含DLL目录中的pdb文件
+#*.pdb
 *.pgc
 *.pgd
 *.rsp
