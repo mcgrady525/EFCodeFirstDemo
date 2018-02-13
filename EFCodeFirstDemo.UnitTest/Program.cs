@@ -28,7 +28,7 @@ namespace EFCodeFirstDemo.UnitTest
             //QueryMultiTable();
 
             // 更新
-            //Update();
+            Update();
 
             // 单条删除
             //DeleteSingle();
@@ -180,10 +180,18 @@ namespace EFCodeFirstDemo.UnitTest
         {
             using (var ctx = new EFCodeFirstDemoDBContext())
             {
-                var fltOrder = ctx.TFltOrders.Where(p => p.OrderId == 1).FirstOrDefault();
-                if (fltOrder != null)
+                //var fltOrder = ctx.TFltOrders.Where(p => p.OrderId == 1).FirstOrDefault();
+                //if (fltOrder != null)
+                //{
+                //    fltOrder.Status = "Changed";
+                //}
+                var askOrders = ctx.TFltAskOrders.Where(p => p.CorpId == 850).ToList();
+                if (askOrders.HasValue())
                 {
-                    fltOrder.Status = "Changed";
+                    askOrders.ForEach(item =>
+                    {
+                        item.FlightType = "D";
+                    });
                 }
 
                 var effectedRows = ctx.SaveChanges();

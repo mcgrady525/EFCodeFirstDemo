@@ -17,10 +17,9 @@ namespace EFCodeFirstDemo.Data
             //关闭数据库初始化器!!!(重要)
             Database.SetInitializer<EFCodeFirstDemoDBContext>(null);
 
-            //???
-            //this.Configuration.ProxyCreationEnabled = false; //默认关闭代理类
-            //this.Configuration.LazyLoadingEnabled = false;
-
+            //关闭延迟加载
+            this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         /// <summary>
@@ -29,7 +28,7 @@ namespace EFCodeFirstDemo.Data
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            //throw new UnintentionalCodeFirstException();
         }
 
         public virtual DbSet<TFltAskOrders> TFltAskOrders { get; set; }
