@@ -19,7 +19,7 @@ namespace EFCodeFirstDemo.UnitTest
             //TestInsertSingle();
 
             // 批量插入(EF自带)
-            //TestInsertBatch();
+            TestInsertBatch();
 
             // 查询(单表)
             //QuerySingleTable();
@@ -28,7 +28,7 @@ namespace EFCodeFirstDemo.UnitTest
             //QueryMultiTable();
 
             // 更新
-            Update();
+            //Update();
 
             // 单条删除
             //DeleteSingle();

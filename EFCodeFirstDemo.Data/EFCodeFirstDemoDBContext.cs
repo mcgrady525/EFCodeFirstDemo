@@ -9,14 +9,12 @@ using System.Data.Entity.Infrastructure;
 
 namespace EFCodeFirstDemo.Data
 {
+    [DbConfigurationType(typeof(EFCodeFirstDemoDBCodeConfig))]
     public partial class EFCodeFirstDemoDBContext: DbContext
     {
         public EFCodeFirstDemoDBContext()
             : base("name=EFCodeFirstDemoDB")
         {
-            //关闭数据库初始化器!!!(重要)
-            Database.SetInitializer<EFCodeFirstDemoDBContext>(null);
-
             //关闭延迟加载
             this.Configuration.ProxyCreationEnabled = false;
             this.Configuration.LazyLoadingEnabled = false;
