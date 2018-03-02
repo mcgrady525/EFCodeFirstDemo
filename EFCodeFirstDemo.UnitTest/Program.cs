@@ -16,10 +16,10 @@ namespace EFCodeFirstDemo.UnitTest
         static void Main(string[] args)
         {
             // 单条插入
-            //TestInsertSingle();
+            TestInsertSingle();
 
             // 批量插入(EF自带)
-            TestInsertBatch();
+            //TestInsertBatch();
 
             // 查询(单表)
             //QuerySingleTable();
@@ -279,7 +279,11 @@ namespace EFCodeFirstDemo.UnitTest
                 };
 
                 ctx.TFltOrders.Add(fltOrder);
-                ctx.SaveChanges();
+                var effectedRows = ctx.SaveChanges();
+                if (effectedRows > 0)
+                {
+                    Console.WriteLine("单条插入成功!");
+                }
             }
         }
 
